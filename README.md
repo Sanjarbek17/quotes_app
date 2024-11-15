@@ -6,6 +6,9 @@ A new Flutter project.
 
 [UI Design](https://github.com/Sanjarbek17/quotes_app.git)
 
+# API url
+
+[API](https://www.api-ninjas.com/api/quotes)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
