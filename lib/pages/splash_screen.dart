@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotes_app/custom_router.dart';
 import 'package:quotes_app/gen/assets.gen.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       if (mounted) {
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, CustomRouter.home);
       }
     });
   }

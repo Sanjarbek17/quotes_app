@@ -4,7 +4,7 @@ import 'package:quotes_app/core/custom_colors.dart';
 final lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: Colors.purple,
-  scaffoldBackgroundColor: CustomColors.primaryColor,
+  scaffoldBackgroundColor: Colors.white,
   textTheme: lightTextTheme,
   colorScheme: lightColorScheme,
 );

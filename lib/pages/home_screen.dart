@@ -5,9 +5,31 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Home Page'),
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            const Text("Random quote"),
+            Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  topRight: Radius.circular(35),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: const Text('INSPIRATION'),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
