@@ -16,7 +16,7 @@ const lightTextTheme = TextTheme(
     fontFamily: 'Coming Soon',
   ),
   titleMedium: TextStyle(
-    fontSize: 15,
+    fontSize: 16,
     color: Colors.black,
     fontFamily: 'Coming Soon',
   ),
