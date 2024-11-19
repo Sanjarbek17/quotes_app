@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quotes_app/dependency_injection.dart';
+import 'package:quotes_app/presentation/bloc/random_qoute_bloc/random_qoute_bloc.dart';
 import 'package:quotes_app/presentation/pages/home_screen.dart';
 import 'package:quotes_app/presentation/pages/settings_screen.dart';
 
@@ -22,6 +24,12 @@ class _AppViewState extends State<AppView> {
           HomeScreen(),
           SettingsScreen(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          locator<RandomQouteBloc>().getQoute();
+        },
+        child: const Icon(Icons.repeat),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,

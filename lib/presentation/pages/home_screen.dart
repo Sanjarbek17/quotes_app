@@ -1,5 +1,7 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quotes_app/presentation/bloc/random_qoute_bloc/random_qoute_bloc.dart';
 import 'package:quotes_app/presentation/widgets/category_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,13 +16,23 @@ class HomeScreen extends StatelessWidget {
           body: SafeArea(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(35.0),
-                  child: Text(
-                    "Random quote asdlfkj asdfl ja asdf asdf sadf ssdlf s",
-                    style: context.titleLarge,
-                    textAlign: TextAlign.center,
-                  ),
+                BlocBuilder<RandomQouteBloc, RandomQouteBlocState>(
+                  builder: (context, state) {
+                    if (state.state == RandomQouteBlocStatus.loading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (state.state == RandomQouteBlocStatus.error) {
+                      return const Center(child: Text('Error'));
+                    }
+                    return Padding(
+                      padding: const EdgeInsets.all(35.0),
+                      child: Text(
+                        state.quotesModel?.quote ?? '',
+                        style: context.titleLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+                  },
                 ),
                 Expanded(
                   child: Container(

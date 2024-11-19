@@ -14,8 +14,9 @@ class RandomQouteBloc extends Cubit<RandomQouteBlocState> {
         );
 
   void init() {
+    _repository.getRandomQuote();
     _repository.randomQuoteStream.listen((event) {
-      emit(state.copyWith(quotesModel: event));
+      emit(state.copyWith(quotesModel: event, state: RandomQouteBlocStatus.loaded));
     });
   }
 

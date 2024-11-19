@@ -1,26 +1,26 @@
 part of 'qoute_bloc.dart';
 
-enum QouteBlocState {
+enum QouteBlocStatus {
   initial,
   loading,
   loaded,
   error,
 }
 
-class QouteState {
-  final QouteBlocState state;
+class QouteBlocState {
+  final QouteBlocStatus state;
   final List<QuotesModel> qoutes;
 
-  QouteState({
-    this.state = QouteBlocState.initial,
+  QouteBlocState({
+    this.state = QouteBlocStatus.initial,
     required this.qoutes,
   });
 
-  QouteState copyWith({
-    QouteBlocState? state,
+  QouteBlocState copyWith({
+    QouteBlocStatus? state,
     List<QuotesModel>? qoutes,
   }) {
-    return QouteState(
+    return QouteBlocState(
       state: state ?? this.state,
       qoutes: qoutes ?? this.qoutes,
     );

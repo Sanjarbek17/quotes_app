@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final locator = GetIt.instance;
 
-void init() async {
+Future<void> init() async {
   String token = dotenv.env['token']!;
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
