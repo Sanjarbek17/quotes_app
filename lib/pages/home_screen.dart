@@ -15,7 +15,11 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(35.0),
-                  child: Text("Random quote", style: context.titleLarge),
+                  child: Text(
+                    "Random quote asdlfkj asdfl ja asdf asdf sadf ssdlf s",
+                    style: context.titleLarge,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Expanded(
                   child: Container(
@@ -27,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                         topRight: Radius.circular(35),
                       ),
                     ),
-                    child:  Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Column(

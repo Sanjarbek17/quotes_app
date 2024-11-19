@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: lightTheme,
       onGenerateRoute: CustomRouter.generateRoute,
-      initialRoute: CustomRouter.settingsScreen,
+      initialRoute: CustomRouter.appView,
     );
   }
 }

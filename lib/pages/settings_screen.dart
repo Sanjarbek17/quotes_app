@@ -17,7 +17,7 @@ class SettingsScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 48),
               width: context.width * 0.9,
               decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(11),
               ),
               child: const Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotes_app/app_view.dart';
 import 'package:quotes_app/pages/category_screen.dart';
 import 'package:quotes_app/pages/home_screen.dart';
 import 'package:quotes_app/pages/settings_screen.dart';
@@ -7,6 +8,7 @@ import 'package:quotes_app/pages/splash_screen.dart';
 class CustomRouter {
   static const String home = '/home';
   static const String splashPage = '/splashPage';
+  static const String appView = '/appView';
   static const String categoryScreen = '/categoryScreen';
   static const String settingsScreen = 'settingsScreen';
 
@@ -20,6 +22,8 @@ class CustomRouter {
         return MaterialPageRoute(builder: (_) => const CategoryScreen());
       case settingsScreen:
         return MaterialPageRoute(builder: (_) => const SettingsScreen());
+      case appView:
+        return MaterialPageRoute(builder: (_) => const AppView());
       default:
         return MaterialPageRoute(builder: (_) => const Placeholder());
     }
