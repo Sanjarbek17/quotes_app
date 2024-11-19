@@ -15,6 +15,11 @@ const lightTextTheme = TextTheme(
     color: Colors.black,
     fontFamily: 'Coming Soon',
   ),
+  titleMedium: TextStyle(
+    fontSize: 15,
+    color: Colors.black,
+    fontFamily: 'Coming Soon',
+  ),
 );
 
 final lightColorScheme = ColorScheme.fromSeed(

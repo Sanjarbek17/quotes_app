@@ -29,12 +29,17 @@ class $AssetsImagesGen {
   AssetGenImage get heartPicture =>
       const AssetGenImage('assets/images/heart_picture.png');
 
+  /// File path: assets/images/left_hearht_picture.png
+  AssetGenImage get leftHearhtPicture =>
+      const AssetGenImage('assets/images/left_hearht_picture.png');
+
   /// File path: assets/images/main_heart_picture.png
   AssetGenImage get mainHeartPicture =>
       const AssetGenImage('assets/images/main_heart_picture.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [heartPicture, mainHeartPicture];
+  List<AssetGenImage> get values =>
+      [heartPicture, leftHearhtPicture, mainHeartPicture];
 }
 
 class Assets {
