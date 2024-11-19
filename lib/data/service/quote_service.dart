@@ -29,7 +29,7 @@ class QuoteService {
     if (response.data is List && response.data.isNotEmpty) {
       _randomQuoteStreamController.add(QuotesModel.fromJson(response.data[0]));
     } else {
-      throw Exception('Failed to load quote');
+      _randomQuoteStreamController.addError('Failed to load quotes');
     }
   }
 

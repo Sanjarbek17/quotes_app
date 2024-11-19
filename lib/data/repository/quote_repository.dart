@@ -13,13 +13,8 @@ class QuoteRepository {
   Stream<List<QuotesModel>> get favoriteQuotesStream => _quoteService.favoriteQuoteStream;
   Stream<QuotesModel> get randomQuoteStream => _quoteService.randomQuoteStream;
 
-  Future<Either<Failure, Success> > getRandomQuote() async {
-    try {
-      await _quoteService.getRandomQuote();
-      return Right(Success());
-    } catch (e) {
-      return Left(Failure('Failed to load quote'));
-    }
+  Future<void> getRandomQuote() async {
+    await _quoteService.getRandomQuote();
   }
 
   Future<Either<Failure, Success>> getQuotes(String category, [int limit = 10]) async {

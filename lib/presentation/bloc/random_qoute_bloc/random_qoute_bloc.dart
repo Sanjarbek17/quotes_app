@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotes_app/data/model/quotes_model.dart';
 import 'package:quotes_app/data/repository/quote_repository.dart';
@@ -15,18 +14,19 @@ class RandomQouteBloc extends Cubit<RandomQouteBlocState> {
 
   void init() {
     _repository.getRandomQuote();
-    _repository.randomQuoteStream.listen((event) {
-      emit(state.copyWith(quotesModel: event, state: RandomQouteBlocStatus.loaded));
-    });
+    emit(state.copyWith(state: RandomQouteBlocStatus.loading));
+    _repository.randomQuoteStream.listen(
+      (event) {
+        emit(state.copyWith(quotesModel: event, state: RandomQouteBlocStatus.loaded));
+      },
+      onError: (e) {
+        emit(state.copyWith(state: RandomQouteBlocStatus.error));
+      },
+    );
   }
 
   void getQoute() async {
     emit(state.copyWith(state: RandomQouteBlocStatus.loading));
-    final Either response = await _repository.getRandomQuote();
-
-    response.fold(
-      (failure) => emit(state.copyWith(state: RandomQouteBlocStatus.error)),
-      (success) => null,
-    );
+    await _repository.getRandomQuote();
   }
 }
