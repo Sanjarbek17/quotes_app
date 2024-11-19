@@ -18,4 +18,15 @@ class QuotesModel extends Equatable {
       author: json['author'] ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'quote': quote,
+      'author': author,
+    };
+  }
+
+  static QuotesModel empty() {
+    return const QuotesModel(quote: '', author: '');
+  }
 }
