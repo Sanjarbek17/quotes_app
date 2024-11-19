@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quotes_app/app_view.dart';
-import 'package:quotes_app/pages/category_screen.dart';
-import 'package:quotes_app/pages/home_screen.dart';
-import 'package:quotes_app/pages/settings_screen.dart';
-import 'package:quotes_app/pages/splash_screen.dart';
+import 'package:quotes_app/presentation/pages/category_screen.dart';
+import 'package:quotes_app/presentation/pages/home_screen.dart';
+import 'package:quotes_app/presentation/pages/settings_screen.dart';
+import 'package:quotes_app/presentation/pages/splash_screen.dart';
 
 class CustomRouter {
   static const String home = '/home';

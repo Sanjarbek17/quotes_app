@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quotes_app/pages/home_screen.dart';
-import 'package:quotes_app/pages/settings_screen.dart';
+import 'package:quotes_app/presentation/pages/home_screen.dart';
+import 'package:quotes_app/presentation/pages/settings_screen.dart';
 
 class AppView extends StatefulWidget {
   const AppView({super.key});
