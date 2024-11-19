@@ -11,4 +11,11 @@ class QuotesModel extends Equatable {
 
   @override
   List<Object?> get props => [quote, author];
+
+  factory QuotesModel.fromJson(Map<String, dynamic> json) {
+    return QuotesModel(
+      quote: json['quote'] ?? '',
+      author: json['author'] ?? '',
+    );
+  }
 }

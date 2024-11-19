@@ -39,6 +39,7 @@ dependencies:
   awesome_extensions: ^2.0.19
   flutter_dotenv: ^5.2.1
   equatable: ^2.0.5
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:
