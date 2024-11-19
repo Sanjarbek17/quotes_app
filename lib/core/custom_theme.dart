@@ -9,7 +9,13 @@ final lightTheme = ThemeData(
   colorScheme: lightColorScheme,
 );
 
-const lightTextTheme = TextTheme();
+const lightTextTheme = TextTheme(
+  headlineSmall: TextStyle(
+    fontSize: 24,
+    color: Colors.black,
+    fontFamily: 'Coming Soon',
+  ),
+);
 
 final lightColorScheme = ColorScheme.fromSeed(
   seedColor: CustomColors.primaryColor,
