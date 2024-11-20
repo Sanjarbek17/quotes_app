@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class CategoryItem extends StatelessWidget {
   final int index;
   final String qoute;
+  final VoidCallback onTap;
   const CategoryItem({
     super.key,
     required this.index,
-    required this.qoute,
+    required this.qoute, required this.onTap,
   });
 
   @override
@@ -34,9 +35,9 @@ class CategoryItem extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: onTap,
               icon: const Icon(
-                Icons.favorite,
+                Icons.favorite_outline,
                 color: Colors.red,
               ),
             )

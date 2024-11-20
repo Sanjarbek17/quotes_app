@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quotes_app/core/custom_theme.dart';
 import 'package:quotes_app/custom_router.dart';
 import 'package:quotes_app/dependency_injection.dart';
+import 'package:quotes_app/presentation/bloc/favorite_bloc/favorite_bloc.dart';
 import 'package:quotes_app/presentation/bloc/quote_bloc/qoute_bloc.dart';
 import 'package:quotes_app/presentation/bloc/random_qoute_bloc/random_qoute_bloc.dart';
 
@@ -27,6 +28,9 @@ class App extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => locator<QouteBloc>()..add(InitialQouteEvent()),
+        ),
+        BlocProvider(
+          create: (context) => locator<FavoriteBloc>()..add((InitialFavoriteQuotes())),
         ),
       ],
       child: const MyApp(),

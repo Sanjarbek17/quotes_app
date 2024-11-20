@@ -4,18 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotes_app/dependency_injection.dart';
 import 'package:quotes_app/gen/assets.gen.dart';
 import 'package:quotes_app/presentation/bloc/favorite_bloc/favorite_bloc.dart';
-import 'package:quotes_app/presentation/bloc/quote_bloc/qoute_bloc.dart';
 import 'package:quotes_app/presentation/widgets/category_item.dart';
 
-class CategoryScreen extends StatelessWidget {
-  final String category;
-  final Color color;
-  const CategoryScreen({super.key, required this.category, required this.color});
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color,
+      backgroundColor: Colors.yellow.shade100,
       body: SafeArea(
         child: Column(
           children: [
@@ -25,14 +22,13 @@ class CategoryScreen extends StatelessWidget {
                 Positioned(
                   top: 60,
                   left: 65,
-                  child: Text(category, style: context.headlineSmall),
+                  child: Text('Favorite', style: context.headlineSmall),
                 ),
-                if (category == 'favorite')
-                  const Positioned(
-                    top: 10,
-                    right: 40,
-                    child: Icon(Icons.favorite, color: Colors.red),
-                  ),
+                const Positioned(
+                  top: 10,
+                  right: 40,
+                  child: Icon(Icons.favorite, color: Colors.red),
+                ),
                 Positioned(
                   top: 0,
                   left: 40,
@@ -45,29 +41,29 @@ class CategoryScreen extends StatelessWidget {
                 ),
               ],
             ),
-            BlocBuilder<QouteBloc, QouteBlocState>(
+            BlocBuilder<FavoriteBloc, FavoriteBlocState>(
               builder: (context, state) {
-                if (state.state == QouteBlocStatus.loading) {
+                if (state.status == FavoriteBlocStatus.loading) {
                   return const Center(child: CircularProgressIndicator());
                 }
-                if (state.state == QouteBlocStatus.error) {
+                if (state.status == FavoriteBlocStatus.error) {
                   return const Center(child: Text('Error'));
                 }
-                if (state.qoutes.isEmpty) {
+                if (state.favorites.isEmpty) {
                   return const Center(child: Text('empty'));
                 }
                 return Expanded(
                   child: ListView.builder(
-                    itemCount: state.qoutes.length,
+                    itemCount: state.favorites.length,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return CategoryItem(
                         index: index + 1,
-                        qoute: state.qoutes[index].quote,
+                        qoute: state.favorites[index].quote,
                         onTap: () {
-                          locator<FavoriteBloc>().add(
-                            AddFavoriteQuotes(state.qoutes[index]),
-                          );
+                          locator<FavoriteBloc>().add(RemoveFavoriteQuotes(
+                            state.favorites[index],
+                          ));
                         },
                       );
                     },

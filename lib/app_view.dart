@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotes_app/dependency_injection.dart';
 import 'package:quotes_app/presentation/bloc/random_qoute_bloc/random_qoute_bloc.dart';
+import 'package:quotes_app/presentation/pages/favorite_screen.dart';
 import 'package:quotes_app/presentation/pages/home_screen.dart';
 import 'package:quotes_app/presentation/pages/settings_screen.dart';
 
@@ -22,6 +23,7 @@ class _AppViewState extends State<AppView> {
         controller: _pageController,
         children: const [
           HomeScreen(),
+          FavoriteScreen(),
           SettingsScreen(),
         ],
       ),
@@ -45,6 +47,7 @@ class _AppViewState extends State<AppView> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorite'),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Account'),
         ],
       ),
