@@ -29,16 +29,6 @@ class FavoriteScreen extends StatelessWidget {
                   right: 40,
                   child: Icon(Icons.favorite, color: Colors.red),
                 ),
-                Positioned(
-                  top: 0,
-                  left: 40,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-                  ),
-                ),
               ],
             ),
             BlocBuilder<FavoriteBloc, FavoriteBlocState>(
@@ -59,7 +49,7 @@ class FavoriteScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return CategoryItem(
                         index: index + 1,
-                        qoute: state.favorites[index].quote,
+                        quotesModel: state.favorites[index],
                         onTap: () {
                           locator<FavoriteBloc>().add(RemoveFavoriteQuotes(
                             state.favorites[index],

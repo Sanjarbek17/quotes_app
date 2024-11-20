@@ -1,14 +1,16 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:quotes_app/data/model/quotes_model.dart';
 
 class CategoryItem extends StatelessWidget {
   final int index;
-  final String qoute;
+  final QuotesModel quotesModel;
   final VoidCallback onTap;
   const CategoryItem({
     super.key,
     required this.index,
-    required this.qoute, required this.onTap,
+    required this.quotesModel,
+    required this.onTap,
   });
 
   @override
@@ -30,14 +32,14 @@ class CategoryItem extends StatelessWidget {
             SizedBox(
               width: context.width * 0.65,
               child: Text(
-                qoute,
+                quotesModel.quote,
                 style: context.titleMedium,
               ),
             ),
             IconButton(
               onPressed: onTap,
-              icon: const Icon(
-                Icons.favorite_outline,
+              icon: Icon(
+                !quotesModel.isFavorite ? Icons.favorite : Icons.favorite_outline,
                 color: Colors.red,
               ),
             )

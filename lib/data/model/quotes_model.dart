@@ -2,11 +2,13 @@ import 'package:equatable/equatable.dart';
 
 class QuotesModel extends Equatable {
   final String quote;
-  final String author;
+  final String? author;
+  final bool isFavorite;
 
   const QuotesModel({
     required this.quote,
     required this.author,
+    this.isFavorite = false,
   });
 
   @override
@@ -16,6 +18,7 @@ class QuotesModel extends Equatable {
     return QuotesModel(
       quote: json['quote'] ?? '',
       author: json['author'] ?? '',
+      isFavorite: json['is_favorite'] ?? false,
     );
   }
 
@@ -23,7 +26,20 @@ class QuotesModel extends Equatable {
     return {
       'quote': quote,
       'author': author,
+      'is_favorite': isFavorite,
     };
+  }
+
+  QuotesModel copyWith({
+    String? quote,
+    String? author,
+    bool? isFavorite,
+  }) {
+    return QuotesModel(
+      quote: quote ?? this.quote,
+      author: author ?? this.author,
+      isFavorite: isFavorite ?? this.isFavorite,
+    );
   }
 
   static QuotesModel empty() {

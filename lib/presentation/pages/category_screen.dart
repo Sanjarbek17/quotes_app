@@ -16,6 +16,12 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: color,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          locator<QouteBloc>().add(FetchQouteEvent(category));
+        },
+        child: const Icon(Icons.repeat),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -63,7 +69,7 @@ class CategoryScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return CategoryItem(
                         index: index + 1,
-                        qoute: state.qoutes[index].quote,
+                        quotesModel: state.qoutes[index],
                         onTap: () {
                           locator<FavoriteBloc>().add(
                             AddFavoriteQuotes(state.qoutes[index]),

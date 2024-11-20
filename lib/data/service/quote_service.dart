@@ -40,10 +40,14 @@ class QuoteService {
         queryParameters: {'category': category},
       );
       if (response.data is List && response.data.isNotEmpty) {
+        QuotesModel qouteModel = QuotesModel.fromJson(response.data[0]);
+        if (!_favoriteQuoteStreamController.value.contains(qouteModel)) {
+          qouteModel = qouteModel.copyWith(isFavorite: true);
+        }
         _qouteStreamController.add(
           [
             ..._qouteStreamController.value,
-            QuotesModel.fromJson(response.data[0]),
+            qouteModel,
           ],
         );
       } else {

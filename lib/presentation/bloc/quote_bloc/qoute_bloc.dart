@@ -23,7 +23,6 @@ class QouteBloc extends Bloc<QouteBlocEvent, QouteBlocState> {
   }
 
   void _onFetchQouteEvent(FetchQouteEvent event, Emitter<QouteBlocState> emit) async {
-    emit(state.copyWith(state: QouteBlocStatus.loading));
     final response = await _quoteRepository.getQuotes(event.category);
 
     response.fold((failure) {

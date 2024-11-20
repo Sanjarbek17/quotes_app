@@ -15,10 +15,10 @@ class FavoriteBloc extends Bloc<FavoriteBlocEvent, FavoriteBlocState> {
     on<RemoveFavoriteQuotes>(_removeFavoriteQuotes);
   }
 
-  void _initialFavoriteQuotes(InitialFavoriteQuotes event, Emitter<FavoriteBlocState> emit) async{
+  void _initialFavoriteQuotes(InitialFavoriteQuotes event, Emitter<FavoriteBlocState> emit) async {
     emit(state.copyWith(status: FavoriteBlocStatus.loading));
     await quoteRepository.getFavoriteQuotes();
-    emit.forEach(
+    await emit.forEach(
       quoteRepository.favoriteQuotesStream,
       onData: (data) => state.copyWith(status: FavoriteBlocStatus.loaded, favorites: data),
       onError: (error, stackTrace) => state.copyWith(status: FavoriteBlocStatus.error),
