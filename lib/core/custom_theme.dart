@@ -9,13 +9,25 @@ final lightTheme = ThemeData(
   colorScheme: lightColorScheme,
 );
 
-const lightTextTheme = TextTheme(
-  headlineSmall: TextStyle(
+final lightTextTheme = TextTheme(
+  headlineSmall: const TextStyle(
     fontSize: 24,
     color: Colors.black,
     fontFamily: 'Coming Soon',
   ),
-  titleMedium: TextStyle(
+  titleLarge: TextStyle(
+    fontSize: 20,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        color: Colors.black.withOpacity(0.8),
+        offset: const Offset(-1, 5),
+        blurRadius: 10,
+      ),
+    ],
+  ),
+  titleMedium: const TextStyle(
     fontSize: 16,
     color: Colors.black,
     fontFamily: 'Coming Soon',

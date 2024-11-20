@@ -19,7 +19,15 @@ class CustomRouter {
       case splashPage:
         return MaterialPageRoute(builder: (_) => const SplashPage());
       case categoryScreen:
-        return MaterialPageRoute(builder: (_) => const CategoryScreen());
+        return MaterialPageRoute(
+          builder: (_) {
+            final Map arguments = settings.arguments as Map;
+            return CategoryScreen(
+              category: arguments['category'],
+              color: arguments['color'],
+            );
+          },
+        );
       case settingsScreen:
         return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case appView:

@@ -14,10 +14,12 @@ class QouteBloc extends Bloc<QouteBlocEvent, QouteBlocState> {
     on<InitialQouteEvent>(_onInitialQouteEvent);
   }
 
-  void _onInitialQouteEvent(InitialQouteEvent event, Emitter<QouteBlocState> emit) {
-    _quoteRepository.quotesStream.listen((event) {
-      emit(state.copyWith(qoutes: event));
-    });
+  void _onInitialQouteEvent(InitialQouteEvent event, Emitter<QouteBlocState> emit) async {
+    await emit.forEach(
+      _quoteRepository.quotesStream,
+      onData: (data) => state.copyWith(state: QouteBlocStatus.loaded, qoutes: data),
+      onError: (error, stackTrace) => state.copyWith(state: QouteBlocStatus.error),
+    );
   }
 
   void _onFetchQouteEvent(FetchQouteEvent event, Emitter<QouteBlocState> emit) async {

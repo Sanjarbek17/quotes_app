@@ -1,10 +1,13 @@
-
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
+  final int index;
+  final String qoute;
   const CategoryItem({
     super.key,
+    required this.index,
+    required this.qoute,
   });
 
   @override
@@ -20,13 +23,13 @@ class CategoryItem extends StatelessWidget {
               height: 42,
               decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(50), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.4), blurRadius: 4, spreadRadius: -1, offset: const Offset(0, 5))]),
               alignment: Alignment.center,
-              child: Text('1', style: context.titleMedium),
+              child: Text(index.toString(), style: context.titleMedium),
             ),
             const SizedBox(width: 10),
             SizedBox(
               width: context.width * 0.65,
               child: Text(
-                'Hate is a strong word, but love is strongeasdfa sdfa sdf asdfr.',
+                qoute,
                 style: context.titleMedium,
               ),
             ),

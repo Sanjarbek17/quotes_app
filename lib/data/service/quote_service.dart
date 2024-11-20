@@ -33,22 +33,23 @@ class QuoteService {
     }
   }
 
-  Future<void> getQuotes(String category, [int limit = 10]) async {
-    List<QuotesModel> quotes = [];
+  Future<void> getQuotes(String category, int limit) async {
     for (int i = 0; i < limit; i++) {
       final response = await _dio.get(
         'quotes',
         queryParameters: {'category': category},
       );
-
       if (response.data is List && response.data.isNotEmpty) {
-        quotes.add(QuotesModel.fromJson(response.data[0]));
+        _qouteStreamController.add(
+          [
+            ..._qouteStreamController.value,
+            QuotesModel.fromJson(response.data[0]),
+          ],
+        );
       } else {
         throw Exception('Failed to load quotes');
       }
     }
-
-    _qouteStreamController.add(quotes);
   }
 
   Future<void> getFavoriteQuotes() async {

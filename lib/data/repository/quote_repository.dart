@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:quotes_app/data/model/quotes_model.dart';
 import 'package:quotes_app/data/service/quote_service.dart';
 import 'package:quotes_app/utils/custom_failure.dart';
@@ -22,6 +23,9 @@ class QuoteRepository {
       await _quoteService.getQuotes(category, limit);
       return Right(Success());
     } catch (e) {
+      if (e is DioException) {
+        return Left(Failure('DioException'));
+      }
       return Left(Failure('Failed to load quotes'));
     }
   }
