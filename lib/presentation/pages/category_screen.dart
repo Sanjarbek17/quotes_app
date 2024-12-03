@@ -33,15 +33,9 @@ class CategoryScreen extends StatelessWidget {
                   left: 65,
                   child: Text(category, style: context.headlineSmall),
                 ),
-                if (category == 'favorite')
-                  const Positioned(
-                    top: 10,
-                    right: 40,
-                    child: Icon(Icons.favorite, color: Colors.red),
-                  ),
                 Positioned(
                   top: 0,
-                  left: 40,
+                  left: 20,
                   child: IconButton(
                     onPressed: () {
                       Navigator.pop(context);
